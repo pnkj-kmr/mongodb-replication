@@ -10,6 +10,8 @@ _mongodb [4.4] | choose higher version if you like_
 4. Joinning the Relication Cluster with Primary Node
 5. Automatic Failover
 
+![MongoCluster](./scripts/mongo.png)
+
 ### 1. MongoDB Installation
 
 ---
@@ -180,6 +182,24 @@ _navigate to the path of **docker-compose.yml**, and the command as_
 
 ```
 docker-compose up --build --force
+```
+
+_Once, the cluster up and running, need to initiate the replication by running below commands in one of docker container_
+
+```
+# To connect with container
+docker exec -it m1 bash
+
+# To open mongo shell
+mongo -p 27017
+
+# To setup replication
+rs.initiate()
+
+rs.add("hostname2:27017")
+rs.add("hostname3:27017")
+
+rs.status()
 ```
 
 #### D. How to connect to mongodb cluster
