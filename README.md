@@ -5,7 +5,7 @@ _mongodb [4.4] | choose higher version if you like_
 ## mongodb on HA - these setups help
 
 1. MongoDB Installation [skip if already installed]
-2. Hostname Resolution Setup [or we can skip this by IP address]
+2. Hostname Resolution [or we can skip this by IP address]
 3. MongoDB with Replication Mode [HA]
 4. Joinning the Relication Cluster with Primary Node
 5. Automatic Failover
@@ -48,7 +48,7 @@ systemctl status mongod
 
 _**REPEAT** the step in Each & Every machine_
 
-### 2. Hostname Resolution Setup
+### 2. Hostname Resolution
 
 ---
 
