@@ -1,0 +1,53 @@
+version: "3"
+services:
+  m1:
+    container_name: "m1"
+    image: mongo:4.4
+    environment:
+      - "TEST=x"
+    ports:
+      - "8001:27017"
+    hostname: "hostname1"
+    command: "mongod --replSet ha --logpath=/tmp/mongod.log"
+    volumes:
+      - "./data/mongo1:/data/db"
+      - "./log/mongo1:/tmp"
+    networks:
+      - mongo_cluster
+
+  m2:
+    container_name: "m2"
+    image: mongo:4.4
+    environment:
+      - "TEST=x"
+    ports:
+      - "8002:27017"
+    hostname: "hostname2"
+    command: "mongod --replSet ha --logpath=/tmp/mongod.log"
+    volumes:
+      - "./data/mongo2:/data/db"
+      - "./log/mongo2:/tmp"
+    networks:
+      - mongo_cluster
+
+  m3:
+    container_name: "m3"
+    image: mongo:4.4
+    environment:
+      - "TEST=x"
+    ports:
+      - "8003:27017"
+    hostname: "hostname3"
+    command: "mongod --replSet ha --logpath=/tmp/mongod.log"
+    volumes:
+      - "./data/mongo3:/data/db"
+      - "./log/mongo3:/tmp"
+    networks:
+      - mongo_cluster
+
+networks:
+  mongo_cluster:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24

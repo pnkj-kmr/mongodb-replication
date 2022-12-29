@@ -1,0 +1,24 @@
+
+
+# change the mongo.conf file
+vi /etc/mongo.conf
+
+bindIp 0.0.0.0,127.0.0.1,<hostname>
+
+replication:
+  replSetName: "HA"
+
+
+
+# restart the mongod service
+service mongod restart
+service mongod status
+
+
+# go to mongo console to initiate the replication
+mongo
+>rs.initiate()
+>rs.add("<ip>:<port>")
+>rs.status()
+
+

@@ -1,0 +1,57 @@
+{
+  "total_lines_in_file": 1000006,
+  "CONTROL": {
+    "I": 84,
+    "W": 8
+  },
+  "NETWORK": {
+    "I": 196623,
+    "W": 1
+  },
+  "STORAGE": {
+    "I": 8833
+  },
+  "RECOVERY": {
+    "I": 6
+  },
+  "INDEX": {
+    "I": 1812
+  },
+  "COMMAND": {
+    "I": 428
+  },
+  "FTDC": {
+    "I": 16
+  },
+  "REPL": {
+    "I": 209,
+    "W": 1
+  },
+  "SHARDING": {
+    "I": 19
+  },
+  "-": {
+    "I": 557659
+  },
+  "ACCESS": {
+    "I": 54
+  },
+  "ASIO": {
+    "I": 9
+  },
+  "CONNPOOL": {
+    "I": 156210
+  },
+  "INITSYNC": {
+    "I": 8
+  },
+  "ELECTION": {
+    "I": 10
+  },
+  "QUERY": {
+    "W": 1
+  },
+  "REPL_HB": {
+    "I": 78009
+  }
+}

@@ -1,0 +1,14 @@
+
+#mongo replication setup
+modify the /etc/mongo.conf
+
+
+
+MONGO_URL
+
+mongodb://user1:PASSWORD1@192.168.1.102:27017,192.168.1.103:27017/test_1?retryWrites=false&authSource=test_1&authMechanism=SCRAM-SHA-1
+
+# chaning log rotation
+$mongo
+>use admin
+>db.adminCommand({ logRotate: 1 });
