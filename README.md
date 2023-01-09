@@ -214,3 +214,25 @@ _here is the connection string to connect with mongodb_
 ```
 mongodb://<user>:<password>@<ip_or_hostname_1>:27017,<ip_or_hostname_2>:27017,<ip_or_hostname_3>:27017/<database_name>?retryWrites=false&authSource=<database_name>&authMechanism=SCRAM-SHA-1
 ```
+
+#### E. How to take mongodb backup for specific database as
+
+_Modify the database connection uri as per your configuration_
+
+```
+mongodump --uri="mongodb://user1:password1@192.168.0.102:27017/test_db?retryWrites=false&authSource=test_db&authMechanism=SCRAM-SHA-1"
+```
+
+#### F. How to do mongodb restore for specific database as
+
+_Modify the database connection uri as per your configuration_
+
+_Go to backup folder <path>/dump_
+
+```
+mongorestore test_db/ --uri="mongodb://user1:password1@192.168.0.102:27017/test_db?retryWrites=false&authSource=test_db&authMechanism=SCRAM-SHA-1"
+
+# OR
+
+mongorestore test_db/ --uri="mongodb://127.0.0.1:27017/test_db?retryWrites=false&authSource=test_db&authMechanism=SCRAM-SHA-1"
+```
