@@ -68,7 +68,7 @@ cat /etc/hosts
 
 _Need to add machine hostname in mongod.conf file as, we are refering hostname1 to show_
 
-_[linux](https://www.mongodb.com/docs/v4.4/tutorial/install-mongodb-on-red-hat/): /etc/mongod.conf_
+_[linux](https://www.mongodb.com/docs/v4.4/tutorial/install-mongodb-on-red-hat/): vi /etc/mongod.conf_
 
 ```
 net:
@@ -235,4 +235,39 @@ mongorestore test_db/ --uri="mongodb://user1:password1@192.168.0.102:27017/test_
 # OR
 
 mongorestore test_db/ --uri="mongodb://127.0.0.1:27017/test_db?retryWrites=false&authSource=test_db&authMechanism=SCRAM-SHA-1"
+```
+
+#### G. MongoDB authorization enabling on mongosh
+
+_To enable mongodb authorization_
+
+1. Create a user to authenticate
+2. Change mongod.conf
+
+_First, we need to login to running mongosh by following below to create a user_
+
+```
+use admin
+db.createUser({user: "admin", pwd: "admin", roles: [{role: "userAdminAnyDatabase", db: "admin"}]});
+```
+
+_Second, enabling the authorization setting in conf file as_
+
+_[linux]: vi /etc/mongod.conf_
+
+```
+security:
+  authorization: "enabled"
+```
+
+_Than, restart the mongodb server_
+
+```
+systemctl restart mongod
+```
+
+_To authenticate the mongosh_
+
+```
+db.auth('<username>', '<password>')
 ```
