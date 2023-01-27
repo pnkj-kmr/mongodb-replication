@@ -2,3 +2,5 @@
 **.sock
 data
 temp
+.DS_Store
+.vscode
