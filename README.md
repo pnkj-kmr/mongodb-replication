@@ -144,6 +144,23 @@ _Arbiters are mongod instances that are part of a replica set but do not hold da
 
 [Referance Link For Arbiter Configuration](https://www.mongodb.com/docs/v4.4/tutorial/add-replica-set-arbiter/#:~:text=Arbiters%20are%20mongod%20instances%20that,do%20not%20require%20dedicated%20hardware.)
 
+COMMAND For Arbiters Registration 
+
+```
+rs.addArb('hostname.arbiter:27017')
+```
+If Arbiters Registration fails with error `"MongoServerError: Reconfig attempted to install a config that would change the implicit default write concern. Use the setDefaultRWConcern command to set a cluster-wide write concern and try the reconfig again."` Use the below command to add the node as a arbiter.
+
+```
+db.adminCommand(
+  {
+    setDefaultRWConcern : 1,
+    defaultWriteConcern: { 
+	"w":1
+	}
+  })
+```
+
 ### ADDITIONAL
 
 ---
