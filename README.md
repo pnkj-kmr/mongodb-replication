@@ -136,6 +136,14 @@ _In case of 2 member replica set, majority is 2 (1 is not majority). So the elec
 
 _completed :)_
 
+### 6. Arbiters Configuration For Automatic Failover
+
+---
+
+_Arbiters are mongod instances that are part of a replica set but do not hold data (i.e. do not provide data redundancy). They can, however, participate in elections. Arbiters have minimal resource requirements and do not require dedicated hardware._
+
+[Referance Link For Arbiter Configuration](https://www.mongodb.com/docs/v4.4/tutorial/add-replica-set-arbiter/#:~:text=Arbiters%20are%20mongod%20instances%20that,do%20not%20require%20dedicated%20hardware.)
+
 ### ADDITIONAL
 
 ---
